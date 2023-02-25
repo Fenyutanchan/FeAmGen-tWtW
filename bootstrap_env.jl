@@ -7,6 +7,8 @@ rm(joinpath(env_root, "Project.toml"), force=true, recursive=true)
 Pkg.activate(env_root)
 
 Pkg.add("Git")
+Pkg.add("JLD2")
+Pkg.add("SymEngine")
 
 Pkg.add(url="https://github.com/zhaoli-IHEP/AmpTools.jl")
 Pkg.add(url="https://github.com/Fenyutanchan/QGRAF_jll.jl")
@@ -20,12 +22,11 @@ try
     for patch ∈ all_patches
         run(`$(git()) apply $patch`)
     end
-    @info "Apply patch(s) successfully."
 catch
     run(`$(git()) reset --hard HEAD`)
     for patch ∈ all_patches
         run(`$(git()) apply $patch`)
     end
-    @info "Apply patch(s) successfully."
 end
+@info "Apply $(length(all_patches)) patch(s) successfully."
 cd(env_root)

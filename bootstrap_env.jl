@@ -8,6 +8,7 @@ Pkg.activate(env_root)
 
 Pkg.add("Git")
 Pkg.add("JLD2")
+Pkg.add("ProgressMeter")
 Pkg.add("SymEngine")
 
 Pkg.add(url="https://github.com/zhaoli-IHEP/AmpTools.jl")

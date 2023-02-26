@@ -23,7 +23,7 @@ index d05da3a..783775f 100644
  export digest_seed_proc, generate_amp, generate_integral
  export generate_multi_yaml, generate_shiftUP_yaml
 diff --git a/src/FeynmanDiagram.jl b/src/FeynmanDiagram.jl
-index dc9092d..cf6432b 100644
+index 947e049..5181f64 100644
 --- a/src/FeynmanDiagram.jl
 +++ b/src/FeynmanDiagram.jl
 @@ -122,7 +122,8 @@ function generate_Feynman_diagram( model::Model, input::Dict{Any,Any} )

@@ -1,6 +1,9 @@
 Manifest.toml
 Project.toml
 
+*.frm
+*.log
+
 Wplus_t_TO_Wplus_t/
 with_Fermion_loops/
 with_light_quark_loops/

@@ -1,3 +1,5 @@
-Filter all Feynman diagrams with light quark loops at $t W \to t W$ process up to 3-loop.
+# Filter Feynman diagrams of $t W \to t W$ process at 3-loop
+
 Run `julia -t <number of threads> main.jl` direcly.
-All are archived at `with_light_quark_loops/`.
+
+Then, all things are archived at `with_light_quark_loops/`, `with_nc4/` and `with_nfnc3/` respectively.

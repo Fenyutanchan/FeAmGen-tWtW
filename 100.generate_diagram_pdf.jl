@@ -5,7 +5,8 @@ include("plot_standalone_Feynman_diagram.jl")
 root_dir        =   dirname(@__FILE__)
 archive_dirs    =   [
     "with_light_quark_loops",
-    "with_nc4"
+    "with_nc4",
+    "with_nfnc3"
 ]
 map!(dir -> joinpath(root_dir, dir), archive_dirs, archive_dirs)
 

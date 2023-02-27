@@ -28,7 +28,7 @@ function plot_standalone_Feynman_diagram(tex_file::String)::Nothing
     end
 
     cd(tex_file_dir)
-    open("tmp_$tex_file", "w+") do io
+    open("tmp_$(tex_file_head).tex", "w+") do io
         join(io, contents, "\n")
     end
     (run ∘ pipeline)(`lualatex tmp_$(tex_file_name)`, devnull)

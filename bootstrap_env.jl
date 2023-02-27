@@ -6,6 +6,7 @@ rm(joinpath(env_root, "Manifest.toml"), force=true, recursive=true)
 rm(joinpath(env_root, "Project.toml"), force=true, recursive=true)
 Pkg.activate(env_root)
 
+Pkg.add("FORM_jll")
 Pkg.add("Git")
 Pkg.add("JLD2")
 Pkg.add("ProgressMeter")

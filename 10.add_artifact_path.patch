@@ -1,0 +1,13 @@
+diff --git a/src/FeAmGen.jl b/src/FeAmGen.jl
+index d05da3a..e1c5be7 100644
+--- a/src/FeAmGen.jl
++++ b/src/FeAmGen.jl
+@@ -48,6 +49,8 @@ include("Seed.jl")
+ include("GenAmp.jl")
+ include("Integral.jl")
+ 
++art_FeAmGen_dir = Pkg.Artifacts.artifact"FeAmGen"
++
+ ###################
+ function __init__()
+ ###################

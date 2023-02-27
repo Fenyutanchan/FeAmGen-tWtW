@@ -1,41 +1,10 @@
-# using AmpTools
-# using SymEngine
+include("get_dir.jl")
 
 root_dir    =   dirname(@__FILE__)
 base_dir    =   joinpath(root_dir, "Wplus_t_TO_Wplus_t")
 target_dir  =   joinpath(root_dir, "with_light_quark_loops")
 
 !isdir(target_dir) && mkdir(target_dir)
-
-function get_n_loop_dir(base_dir::String, n_loop::Int)::String
-    @assert isdir(base_dir)
-    n_loop_dir  =   joinpath(
-        base_dir,
-        (last ∘ splitdir)(base_dir) * "_$(n_loop)Loop"
-    )
-    @assert isdir(n_loop_dir)
-    return  n_loop_dir
-end
-
-function get_amplitudes_dir(base_dir::String)::String
-    @assert isdir(base_dir)
-    amplitudes_dir  =   joinpath(
-        base_dir,
-        (last ∘ splitdir)(base_dir) * "_amplitudes"
-    )
-    @assert isdir(amplitudes_dir)
-    return  amplitudes_dir
-end
-
-function get_visuals_dir(base_dir::String)::String
-    @assert isdir(base_dir)
-    visuals_dir =   joinpath(
-        base_dir,
-        (last ∘ splitdir)(base_dir) * "_visuals"
-    )
-    @assert isdir(visuals_dir)
-    return  visuals_dir
-end
 
 function find_diagrams_with_light_quark_loop(n_loop::Int)::Vector{Int}
     tex_files   =   readdir(
@@ -65,7 +34,7 @@ function find_diagrams_with_light_quark_loop(n_loop::Int)::Vector{Int}
                     r"[1-9][0-9]*",
                     (last ∘ splitdir)(tex_file)
                 ).match
-            ) 
+            )
             println("Has internal bottom for cut: #$(index)")
             push!(index_list, index)
         end
@@ -118,7 +87,7 @@ function find_diagrams_with_light_quark_loop(n_loop::Int)::Vector{Int}
     return up_index_list
 end # function main
 
-function main(n_loop::Int)::Nothing
+function light_quark_main(n_loop::Int)::Nothing
     amplitudes_dir  =   (get_amplitudes_dir ∘ get_n_loop_dir)(base_dir, n_loop)
     visuals_dir     =   (get_visuals_dir ∘ get_n_loop_dir)(base_dir, n_loop)
 
@@ -136,4 +105,4 @@ function main(n_loop::Int)::Nothing
     end
 end
 
-main(3)
+light_quark_main(3)

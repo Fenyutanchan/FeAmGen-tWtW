@@ -19,7 +19,7 @@ for archive_dir ∈ archive_dirs
     setdiff!(tex_head_list, pdf_head_list)
 
     cd(archive_dir)
-    p       =   Progress(length(tex_head_list), "Plotting with with $archive_dir...")
+    p       =   Progress(length(tex_head_list), "Plotting in $archive_dir...")
     counter =   Threads.Atomic{Int}(0)
     l       =   Threads.SpinLock()
     Threads.@threads for tex_head in tex_head_list

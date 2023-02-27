@@ -24,7 +24,7 @@ try
         run(`$(git()) apply $patch`)
     end
 catch
-    run(`$(git()) reset --hard 4942a6cbf544b24b5c8ef3933ddda8003ee72313`)
+    run(`$(git()) reset --hard 8c002c8b6518de420a404009da6a6e340b126a14`)
     for patch ∈ all_patches
         run(`$(git()) apply $patch`)
     end
